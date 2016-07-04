@@ -50,6 +50,6 @@ public class Audio extends Medium implements Serializable {
     public void druckeDaten(OutputStream Stream) 
     {
 		PrintStream out = new PrintStream(Stream, true);
-		out.printf("ID = %d \"%s\" von %s aus %d Spieldauer: %d Sekunden. Alter: %d Jahre%n",super.getId(),super.getTitel(),interpret,super.getJahr(),getDauer(),alter());
+		out.printf("ID = %d \"%s\" von %s aus %d Spieldauer: %d Sekunden. Alter: %d Jahre%n",super.getId(),super.getTitel(),interpret,super.getJahr(),getDauer(),alter()).toString();
 	}
 }

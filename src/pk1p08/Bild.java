@@ -39,6 +39,6 @@ public class Bild extends Medium implements Serializable {
     public void druckeDaten(OutputStream Stream) 
     {
 		PrintWriter out = new PrintWriter(Stream, true);
-		out.printf("ID = %d \"%s\" aufgenommen im Jahr %d in %s Alter: %d Jahre%n",super.getId(),super.getTitel(),super.getJahr(),ort,alter());
+		out.printf("ID = %d \"%s\" aufgenommen im Jahr %d in %s Alter: %d Jahre%n",super.getId(),super.getTitel(),super.getJahr(),ort,alter()).toString();
     }    
 }

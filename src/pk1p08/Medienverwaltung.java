@@ -16,6 +16,7 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /**
@@ -24,6 +25,7 @@ import java.util.List;
  */
 public class Medienverwaltung implements Serializable
 {	
+	public Iterator<Medium> iterator;
 	private static final long serialVersionUID = 42l;
 	private List<Medium> Medien = new LinkedList<>();
 	public void aufnehmen(Medium m)
@@ -43,13 +45,16 @@ public class Medienverwaltung implements Serializable
 			i++;
 		return i;
 	}
-	public void sucheNeuesMedium(OutputStream Stream)
+	public OutputStream sucheNeuesMedium(OutputStream Stream)
 	{
 		Medium b = Medien.get(0);
 		 for(Medium k : Medien)
 			if(k.alter() < b.alter()) b = k;
-				System.out.printf("%n");
-			b.druckeDaten(Stream);
+				//System.out.printf("%n");
+			//b.druckeDaten(Stream);
+			return Stream;
+			
+			
 	}
 	public double berechneErscheinungsjahr()
 	{
