@@ -49,10 +49,8 @@ public class AudioerfassungView extends Stage {
 		Label titela = new Label("Titel: ");
 		Label ejahra = new Label("Erscheinungsjahr: ");
 		Label laengea = new Label("Länge: ");
-		Button neu = new Button();
-		neu.setText("neu");
-		Button abbrechen = new Button();
-		abbrechen.setText("abbrechen");
+		Button neu = new Button("neu");
+		Button abbrechen = new Button("abbrechen");
 		abbrechen.onActionProperty();
 		gp.addRow(0, artista, artist);
 		gp.addRow(1, titela, titel);

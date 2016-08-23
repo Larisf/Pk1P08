@@ -49,10 +49,8 @@ public class BilderfassungView extends Stage {
 		Label titela = new Label("Titel: ");
 		Label orta = new Label("Ort: ");
 		Label aufnahmejahra = new Label("Aufnahmejahr: ");
-		Button neu = new Button();
-		neu.setText("neu");
-		Button abbrechen = new Button();
-		abbrechen.setText("abbrechen");
+		Button neu = new Button("neu");
+		Button abbrechen = new Button("abbrechen");
 		abbrechen.onActionProperty();
 		gp.addRow(0, titela, titel);
 		gp.addRow(1, orta, ort);
