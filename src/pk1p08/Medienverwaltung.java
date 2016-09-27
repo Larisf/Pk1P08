@@ -91,5 +91,9 @@ public class Medienverwaltung implements Serializable
 			ois.close();
 		}
 	}
+	public void delMedienliste(File Datei) throws IOException, ClassNotFoundException
+	{
+		Datei.delete();
+	}
 }
 	

@@ -208,6 +208,30 @@ public class Menu
 					setMedienliste();
 			}
 	}
+/* Funktion zum löschen der Datei ---------------------------------------------------------------------------------------------------------------------- */
+	private void loescheMedienliste() throws IOException, ClassNotFoundException
+	{
+		try
+		{
+			medium.delMedienliste(Safe);
+		}
+		catch (ClassNotFoundException e)
+		{
+			try (Formatter f = new Formatter()) 
+			{
+				f.format("Fehler:\nKlasse wurde nicht gefunden!");
+				JOptionPane.showMessageDialog(null, f.toString());
+			}
+		}
+		catch (InvalidClassException e)
+		{
+			try (Formatter f = new Formatter()) 
+			{
+				f.format("Fehler:\nFalsche Dateiversion!");
+				JOptionPane.showMessageDialog(null, f.toString());
+			}
+		}
+	}
 /* Funktion zum importieren der Medienliste ---------------------------------------------------------------------------------------------------------------------- */
 	private void importiereMedienliste() throws IOException, ClassNotFoundException
 	{
@@ -294,8 +318,9 @@ private void erstelleMenu() throws EmptyFileException, FileNotFoundException, IO
 				+ "										4. Medienliste in Datei schreiben\n"
 				+ "										5. Medienliste importieren\n"
 				+ "										6. Zeige neues Medium\n"
-				+ "										7. Berechne Durchschnittsjahr\n"
-				+ "										8. Beenden"
+				+ "										7. Lösche Mediendatei\n"
+				+ "										8. Berechne Durchschnittsjahr\n"
+				+ "										9. Beenden\n"
 				, "										Medienverwaltung"
 				,										JOptionPane.QUESTION_MESSAGE);
 				setWahl(Integer.parseInt(Menu));
@@ -319,10 +344,13 @@ private void erstelleMenu() throws EmptyFileException, FileNotFoundException, IO
 					case 6: //neustes Medium suchen
 						medium.sucheNeuesMedium(System.out);
 						break;
-					case 7: //Durchschnittsjahr ermitteln
+					case 7: //Datei loeschen
+						loescheMedienliste();
+						break;
+					case 8: //Durchschnittsjahr ermitteln
 						getDurchschnittsjahr();
 						break;
-					case 8: //Programm beenden
+					case 9: //Programm beenden
 						System.out.printf("Exit\n");
 						System.exit(0);
 						break;
